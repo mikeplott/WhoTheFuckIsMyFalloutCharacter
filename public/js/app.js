@@ -3,15 +3,15 @@
 $('#myModal').modal('show');
 
 /* Dynamic content blocks*/
-
+//
 var falloutContent = ""
-  falloutContent += "<div>"
+  falloutContent += '<div id="fallout">'
   // falloutContent +=    "<h1> My SPECIAL is " + specialJSON + "</h1>"
   // falloutContent +=    "<h2> and I am a " + personJSON + "with " + fact1JSON + "</h2>"
   falloutContent +=       "<h1> it works!! </h1>"
   falloutContent += "</div>"
 var skyrimContent = ""
-  skyrimContent += "<div>"
+  skyrimContent += '<div id="skyrim">'
   skyrimContent += "<h1> i love waka flocka</h1>"
 //   skyrimContent += "<h1> My Race is " + raceJSON + "</h1>"
 //   skyrimContent += "<h2> and I am a " + PersonJSON  + "with " + fact1JSON "</h2>"
