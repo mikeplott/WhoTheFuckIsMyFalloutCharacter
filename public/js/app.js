@@ -2,6 +2,19 @@
 /* Show Modal of Options */
 $('#myModal').modal('show');
 
+/*API Test*/
+
+var serverResponse = function(data){
+  for (var i = 0; i < data.length; i++) {
+    return data[i];
+    console.log(data[i])
+  }
+}
+
+$.getJSON("http://localhost:4567/skyrim").then(serverResponse)
+$.getJSON("http://localhost:4567/fallout").then(serverResponse)
+
+
 /* Dynamic content blocks*/
 //
 var falloutContent = ""
@@ -30,14 +43,3 @@ $( "#skyrim-button" ).click(function() {
   // $.getJSON("mikesurl").then(injectFallout)
   $( "#skyrim" ).append( skyrimContent );
 });
-
-/*API Test*/
-
-var serverResponse = function(data){
-  for (var i = 0; i < data.length; i++) {
-    return data[i];
-  }
-}
-
-$.getJSON("http://localhost:4567/skyrim").then(serverResponse)
-$.getJSON("http://localhost:4567/fallout").then(serverResponse)
