@@ -40,6 +40,42 @@ public class FalloutCharacter {
         this.desc = desc;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public int getStr() {
+        return str;
+    }
+
+    public int getPer() {
+        return per;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public int getCha() {
+        return cha;
+    }
+
+    public int getIntel() {
+        return intel;
+    }
+
+    public int getAgi() {
+        return agi;
+    }
+
+    public int getLuck() {
+        return luck;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
     @Override
     public String toString() {
         return "Character{" +
