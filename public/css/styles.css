@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box; }
+
+img {
+  width: 100%;
+  display: block; }
+
+#app-container {
+  max-width: 960px; }
+
+/*# sourceMappingURL=styles.css.map */
