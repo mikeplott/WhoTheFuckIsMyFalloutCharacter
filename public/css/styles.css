@@ -11,11 +11,15 @@ img {
 .modal-header {
   background: #67809F; }
 
-#fallout {
-  background: url("https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg") center center no-repeat; }
+.fallout {
+  background: url("https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg") center center no-repeat fixed; }
 
-#skyrim {
-  background: url("https://images6.alphacoders.com/309/309983.jpg"); }
+.skyrim {
+  background: url("https://images6.alphacoders.com/309/309983.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 .modal-body .fallout-button {
   font-family: 'Roboto', sans-serif;
