@@ -11,8 +11,11 @@ img {
 .modal-header {
   background: #67809F; }
 
-.modal-content {
+#fallout {
   background: url("https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg") center center no-repeat; }
+
+#skyrim {
+  background: url("https://images6.alphacoders.com/309/309983.jpg"); }
 
 .modal-body .fallout-button {
   font-family: 'Roboto', sans-serif;

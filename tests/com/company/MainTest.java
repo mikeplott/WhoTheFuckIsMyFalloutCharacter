@@ -1,6 +1,8 @@
 package com.company;
 
 import org.junit.Test;
+
+import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
@@ -153,9 +155,9 @@ public class MainTest {
         String third = Main.selectThird(conn, ranThird);
         String desc = first + " " + second + " " + third;
         Main.insertCharacter(conn, ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, desc, user.id);
-        Character character = Main.selectOneCharacter(conn, 1);
+        FalloutCharacter falloutCharacter = Main.selectOneCharacter(conn, 1);
         conn.close();
-        assertTrue(character != null);
+        assertTrue(falloutCharacter != null);
     }
 
     @Test
@@ -193,11 +195,11 @@ public class MainTest {
         String third = Main.selectThird(conn, ranThird);
         String desc = first + " " + second + " " + third;
         Main.insertCharacter(conn, ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, desc, user.id);
-        Character character = Main.selectOneCharacter(conn, 1);
+        FalloutCharacter falloutCharacter = Main.selectOneCharacter(conn, 1);
         Main.deleteCharacter(conn, 1);
-        Character character1 = Main.selectOneCharacter(conn, 1);
+        FalloutCharacter falloutCharacter1 = Main.selectOneCharacter(conn, 1);
         conn.close();
-        assertTrue(character1 == null);
+        assertTrue(falloutCharacter1 == null);
     }
 
     @Test
@@ -250,13 +252,13 @@ public class MainTest {
         String desc1 = first1 + " " + second1 + " " + third1;
         Main.insertCharacter(conn, ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, desc, user.id);
         Main.insertCharacter(conn, ranStr1, ranPer1, ranEnd1, ranCha1, ranIntel1, ranAgi1, ranLuck1, desc1, user.id);
-        Character character = Main.selectOneCharacter(conn, 1);
-        Character character1 = Main.selectOneCharacter(conn, 2);
-        System.out.println(character);
-        System.out.println(character1);
-        ArrayList<Character> characters = Main.selectCharacters(conn, user.id);
+        FalloutCharacter falloutCharacter = Main.selectOneCharacter(conn, 1);
+        FalloutCharacter falloutCharacter1 = Main.selectOneCharacter(conn, 2);
+        System.out.println(falloutCharacter);
+        System.out.println(falloutCharacter1);
+        ArrayList<FalloutCharacter> falloutCharacters = Main.selectCharacters(conn, user.id);
         conn.close();
-        assertTrue(characters.size() == 2);
+        assertTrue(falloutCharacters.size() == 2);
     }
 
     @Test
@@ -343,5 +345,37 @@ public class MainTest {
         ArrayList<String> words = Main.selectAllThird(conn);
         conn.close();
         assertTrue(words.size() == 1);
+    }
+
+    @Test
+    public void testSelectSkyrimCharacters() throws SQLException, FileNotFoundException {
+        Connection conn = startConnection();
+        Main.skyrimImport(conn);
+        ArrayList<SkyrimCharacter> skyrimCharacters = Main.selectAllSkyrimCharacters(conn);
+        conn.close();
+        assertTrue(skyrimCharacters.size() == 10);
+    }
+
+    @Test
+    public void testSelectOneSkyrimCharacter() throws FileNotFoundException, SQLException {
+        Connection conn = startConnection();
+        Main.skyrimImport(conn);
+        int randomSC = (int) Math.ceil(Math.random() * 10);
+        SkyrimCharacter sc = Main.selectASkyrimCharacter(conn, randomSC);
+        sc.health = (int) Math.ceil(Math.random() * 200);
+        if (sc.health < 100) {
+            sc.health = 100;
+        }
+        sc.magicka = (int) Math.ceil(Math.random() * 200);
+        if (sc.magicka < 100) {
+            sc.magicka = 100;
+        }
+        sc.stamina = (int) Math.ceil(Math.random() * 200);
+        if (sc.stamina < 100) {
+            sc.stamina = 100;
+        }
+        System.out.println(sc);
+        conn.close();
+        assertTrue(sc != null);
     }
 }
