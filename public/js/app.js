@@ -14,7 +14,7 @@ var serverResponse = function(data){
 var falloutContent = ""
   falloutContent += '<div class="text-center">';
   falloutContent +=    "<h1> My SPECIAL is " + shit[2] + "</h1>";
-  falloutContent +=    "<h2> and I am a " + shit[3] + "with " + shit[4] + "</h2>";
+  falloutContent +=    "<h2> and I am a " + shit[3] + " with " + shit[4] + "</h2>";
   falloutContent +=    "<h1> it works!! </h1>";
   falloutContent += "</div>";
 
