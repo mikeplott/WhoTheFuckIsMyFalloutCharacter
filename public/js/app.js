@@ -21,11 +21,13 @@ var skyrimContent = ""
 /*jQuery Functions & Calls*/
 $( "#fallout-button" ).click(function() {
   $('#myModal').modal('hide');
+  $("#app-container").addClass("fallout");
   // $getJSON("mikesurl").then(injectFallout)
   $( "#fallout" ).append( falloutContent );
 });
 $( "#skyrim-button" ).click(function() {
   $('#myModal').modal('hide');
+  $("#appcontainer").addClass("skyrim");
   // $getJSON("mikesurl").then(injectFallout)
   $( "#skyrim" ).append( skyrimContent );
 });
