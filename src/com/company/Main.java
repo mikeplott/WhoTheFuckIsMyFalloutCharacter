@@ -39,6 +39,19 @@ public class Main {
                 (request, response) -> {
                     int id = (int)Math.ceil(Math.random() * 10);
                     SkyrimCharacter sc = selectASkyrimCharacter(conn, id);
+                    sc.health = (int) Math.ceil(Math.random() * 200);
+                    sc.magicka = (int) Math.ceil(Math.random() * 200);
+                    sc.stamina = (int) Math.ceil(Math.random() * 200);
+                    if (sc.health < 100) {
+                        sc.health = 100;
+                    }
+                    if (sc.magicka < 100) {
+                        sc.magicka = 100;
+                    }
+                    if (sc.stamina < 100) {
+                        sc.stamina = 100;
+                    }
+
                     JsonSerializer serializer = new JsonSerializer();
                     return serializer.serialize(sc);
                 }
