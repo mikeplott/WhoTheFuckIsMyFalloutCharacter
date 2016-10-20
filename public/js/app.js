@@ -1,25 +1,19 @@
-console.log('ready to go')
-console.log($)
-console.log(_)
-console.log(Backbone)
+
 /* Show Modal of Choices */
 $('#myModal').modal('show');
 
 /* Dynamic content blocks*/
 // var skyrimContent = ""
+//   skyrimContent += "<h1> My Race is " + raceJSON + "</h1>"
+//   skyrimContent += "<h2> and I am a " + PersonJSON  + "with " + fact1JSON "</h2>"
 //   skyrimContent +=
-//   skyrimContent +=
-//   skyrimContent +=
-//   skyrimContent +=
-//   skyrimContent +=
+
 //
 // var falloutContent = ""
+//   falloutContent += "<h1> My SPECIAL is " + specialJSON + "</h1>"
+//   falloutContent += "<h2> and I am a " + personJSON + "with " + fact1JSON + "</h2>"
 //   falloutContent +=
-//   falloutContent +=
-//   falloutContent +=
-//   falloutContent +=
-//   falloutContent +=
-//   falloutContent +=
+
 /*Backbone routing */
 // var AppRouter = Backbone.Router.extend({
 //     routes: {
@@ -27,18 +21,8 @@ $('#myModal').modal('show');
 //         "skyrim": "skyrimContent"
 //     }
 // });
-var clickListener = function(){
-  $( "#fallout-button" || "#skyrim-button" ).click(function() {
-  $('#myModal').modal('hide');
-  });
-}
-// Initiate the router
-// var app_router = new AppRouter;
-//
-// app_router.on('route:defaultRoute', function(actions) {
-//     alert(actions);
-// });
-// Backbone.history.start();
-
+$( "#fallout-button" || "#skyrim-button" ).click(function() {
+$('#myModal').modal('hide');
+});
 // $.getJSON("").then(injectFallout)
 // $.getJSON("").then(injectFallout)
