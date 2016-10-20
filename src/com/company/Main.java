@@ -68,7 +68,6 @@ public class Main {
                 }
         );
 
-
         Spark.get(
                 "/user",
                 (request, response) -> {
@@ -417,12 +416,6 @@ public class Main {
         stmt.execute();
     }
 
-    //    CREAT TABLE IF NOT EXISTS skyrim_characters (id IDENTITY, race VARCHAR, smithing INT, heavy_armor INT, block INT, two_handed INT, one_handed INT,
-    // archery INT, light_armor INT, " +
-//            "sneak INT, lockpicking INT, pickpocket INT, speech INT, alchemy INT, illusion INT, conjuration INT, destruction INT, restoration INT,
-// alteration INT, enchanting INT
-
-
     public static ArrayList<SkyrimCharacter>selectAllSkyrimCharacters(Connection conn) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM skyrim_characters");
         ArrayList<SkyrimCharacter> skyrimCharacters = new ArrayList<>();
@@ -483,5 +476,4 @@ public class Main {
         }
         return null;
     }
-
 }
