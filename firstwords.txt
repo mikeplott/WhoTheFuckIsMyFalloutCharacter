@@ -1,0 +1,5 @@
+blue|monday|ajdsflja
+red|tuesday|alskjdfaslkfdl
+yellow|wednesday|lakjsdfjasfdjlk
+purple|thursday|aljsdfjalsf
+orange|friday|laksjdfjasfdjlk
