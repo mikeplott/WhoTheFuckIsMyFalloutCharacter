@@ -4,8 +4,6 @@ package com.company;
  * Created by michaelplott on 10/20/16.
  */
 
-//id IDENTITY, race VARCHAR, smithing INT, heavy_armor INT, block INT, two_handed INT, one_handed INT, archery INT, light_armor INT, " +
-//"sneak INT, lockpicking INT, pickpocket INT, speech INT, alchemy INT, illusion INT, conjuration INT, destruction INT, restoration INT, alteration INT, enchanting INT
 public class SkyrimCharacter {
     int id;
     int health;

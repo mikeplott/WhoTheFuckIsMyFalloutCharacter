@@ -1,7 +1,6 @@
 package com.company;
 
 import org.junit.Test;
-
 import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
