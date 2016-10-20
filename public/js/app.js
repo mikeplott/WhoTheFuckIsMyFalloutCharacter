@@ -40,13 +40,5 @@ $( "#skyrim-button" ).click(function() {
   $( "#skyrim" ).append( skyrimContent );
 });
 
-/*API Response and Iteration*/
-
-var serverResponse = function(data){
-  for (var i = 0; i < data.length; i++) {
-    return data;
-  }
-}
-
 $.getJSON("http://localhost:4567/skyrim").then(serverResponse)
 $.getJSON("http://localhost:4567/fallout").then(serverResponse)
