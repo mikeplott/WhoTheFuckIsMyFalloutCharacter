@@ -515,6 +515,17 @@ public class Main {
         return stories;
     }
 
+    public static String selectAFalloutStory(Connection conn, int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM fallout_stories WHERE id = ?");
+        stmt.setInt(1, id);
+        ResultSet results = stmt.executeQuery();
+        if (results.next()) {
+            String story = results.getString("story");
+            return story;
+        }
+        return null;
+    }
+
     public static void fileImportFalloutStory(Connection conn) throws FileNotFoundException, SQLException {
         File f = new File("falloutstories.txt");
         Scanner fileScanner = new Scanner(f);

@@ -377,4 +377,25 @@ public class MainTest {
         conn.close();
         assertTrue(sc != null);
     }
+
+    @Test
+    public void testSelectFalloutStory() throws SQLException, FileNotFoundException {
+        Connection conn = startConnection();
+        Main.fileImportFalloutStory(conn);
+        int ranSto = (int) Math.ceil(Math.random() * 6);
+        String story = Main.selectAFalloutStory(conn, ranSto);
+        System.out.println(story);
+        conn.close();
+        assertTrue(story != null);
+    }
+
+    @Test
+    public void testSelectAllFalloutStories() throws SQLException, FileNotFoundException {
+        Connection conn = startConnection();
+        Main.fileImportFalloutStory(conn);
+        ArrayList<String> stories = Main.selectAllFalloutStories(conn);
+        conn.close();
+        assertTrue(stories.size() == 6);
+    }
+
 }
