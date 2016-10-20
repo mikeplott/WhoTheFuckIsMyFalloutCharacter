@@ -6,17 +6,17 @@ $('#myModal').modal('show');
 //
 var falloutContent = ""
   falloutContent += '<div class="text-center">';
-  falloutContent +=    "<h1> My SPECIAL is " + serverResponse + "</h1>";
-  // falloutContent +=    "<h2> and I am a " + personJSON + "with " + fact1JSON + "</h2>"
+  falloutContent +=    "<h1> My SPECIAL is " + serverResponse[i] + "</h1>";
+  falloutContent +=    "<h2> and I am a " + serverResponse[3] + "with " + serverResponse[4] + "</h2>";
   falloutContent +=       "<h1> it works!! </h1>";
   falloutContent += "</div>";
 
 var skyrimContent = ""
   skyrimContent += '<div class="text-center">';
   skyrimContent += "<h1> i love waka flocka</h1>";
-  skyrimContent += "<h1> My Race is " + serverResponse.race + "</h1>";
-//   skyrimContent += "<h2> and I am a " + PersonJSON  + "with " + fact1JSON "</h2>"
-//   skyrimContent += "<h2> and a " + fact2JSON + "</h2>"
+  skyrimContent += "<h1> Your race is " + serverResponse.race + ".</h1>";
+  skyrimContent += "<h2> You are a " + PersonJSON  + "with " + fact1JSON "</h2>"
+  skyrimContent += "<h2> and a " + fact2JSON + "</h2>"
   skyrimContent += "</div>";
 
 /*jQuery Functions & Calls*/
@@ -31,11 +31,11 @@ $( "#skyrim-button" ).click(function() {
   $( "#skyrim" ).append( skyrimContent );
 });
 
-/*API Test*/
+/*API Response and Iteration*/
 
 var serverResponse = function(data){
   for (var i = 0; i < data.length; i++) {
-    return data[i];
+    return data;
   }
 }
 
