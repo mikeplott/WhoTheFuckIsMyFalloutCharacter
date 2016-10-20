@@ -1,5 +1,10 @@
-*{ box-sizing: border-box }
-
+*{
+  box-sizing: border-box
+}
+// body {
+//   #222;
+// }
+// ^Weird glitch^
 img {
    width: 100%;
    display: block;
@@ -13,11 +18,12 @@ img {
    background: #67809F;
 }
 
-.modal-content {
-   background: url('https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg') center center no-repeat;
-
+#fallout{
+  background: url('https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg') center center no-repeat;
 }
-
+#skyrim{
+  background: url('https://images6.alphacoders.com/309/309983.jpg');
+}
 .modal-body {
    .fallout-button{
    font-family: 'Roboto', sans-serif;

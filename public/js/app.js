@@ -1,28 +1,31 @@
 
-/* Show Modal of Choices */
+/* Show Modal of Options */
 $('#myModal').modal('show');
 
 /* Dynamic content blocks*/
-// var skyrimContent = ""
+//
+var falloutContent = ""
+  falloutContent += '<div id="fallout">'
+  // falloutContent +=    "<h1> My SPECIAL is " + specialJSON + "</h1>"
+  // falloutContent +=    "<h2> and I am a " + personJSON + "with " + fact1JSON + "</h2>"
+  falloutContent +=       "<h1> it works!! </h1>"
+  falloutContent += "</div>"
+var skyrimContent = ""
+  skyrimContent += '<div id="skyrim">'
+  skyrimContent += "<h1> i love waka flocka</h1>"
 //   skyrimContent += "<h1> My Race is " + raceJSON + "</h1>"
 //   skyrimContent += "<h2> and I am a " + PersonJSON  + "with " + fact1JSON "</h2>"
-//   skyrimContent +=
+//   skyrimContent += "<h2> and a " + fact2JSON + "</h2>"
+  skyrimContent += "</div>"
 
-//
-// var falloutContent = ""
-//   falloutContent += "<h1> My SPECIAL is " + specialJSON + "</h1>"
-//   falloutContent += "<h2> and I am a " + personJSON + "with " + fact1JSON + "</h2>"
-//   falloutContent +=
-
-/*Backbone routing */
-// var AppRouter = Backbone.Router.extend({
-//     routes: {
-//         "fallout": "falloutContent"
-//         "skyrim": "skyrimContent"
-//     }
-// });
-$( "#fallout-button" || "#skyrim-button" ).click(function() {
-$('#myModal').modal('hide');
+/*jQuery Functions & Calls*/
+$( "#fallout-button" ).click(function() {
+  $('#myModal').modal('hide');
+  // $getJSON("mikesurl").then(injectFallout)
+  $( "#fallout" ).append( falloutContent );
 });
-// $.getJSON("").then(injectFallout)
-// $.getJSON("").then(injectFallout)
+$( "#skyrim-button" ).click(function() {
+  $('#myModal').modal('hide');
+  // $getJSON("mikesurl").then(injectFallout)
+  $( "#skyrim" ).append( skyrimContent );
+});
