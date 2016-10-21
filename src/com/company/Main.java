@@ -106,16 +106,36 @@ public class Main {
                 (request, response) -> {
                     String body = request.body();
                     JsonParser parser = new JsonParser();
-                    HashMap<String, String> theUser = parser.parse(body);
-                    String name = theUser.get("name");
-                    String pass = theUser.get("password");
-                    User user = selectUser(conn, name);
-                    if (user == null) {
-                        insertUser(conn, name, pass);
-                    } else if (!user.password.equals(pass)) {
-                        Spark.halt(403);
+//                    HashMap<String, String> theUser = parser.parse(body);
+//                    String name = theUser.get("name");
+//                    String pass = theUser.get("password");
+                    User user = parser.parse(body, User.class);
+                    //User user = selectUser(conn, name);
+                    User user1 = selectUser(conn, user.name);
+//                    if (user == null) {
+//                        insertUser(conn, name, pass);
+//                    } else if (!user.password.equals(pass)) {
+//                        Spark.halt(403);
+//                        return null;
+//                    }
+                    if (user1 == null) {
+                        insertUser(conn, user.name, user.password);
+                    }
+                    else if (!user.password.equals(user1.password)) {
+                        Spark.halt();
                         return null;
                     }
+                    return "";
+                }
+        );
+
+        Spark.post(
+                "/add-falloutcharacter",
+                (request, response) -> {
+                    String body = request.body();
+                    JsonParser parser = new JsonParser();
+                    FalloutCharacter fc = parser.parse(body, FalloutCharacter.class);
+                    insertFalloutCharacter(conn, fc);
                     return "";
                 }
         );
@@ -539,5 +559,10 @@ public class Main {
             String story = columns[0];
             insertFalloutStory(conn, story);
         }
+    }
+
+    public static void insertFalloutCharacter(Connection conn, FalloutCharacter fc) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO fallout_characters VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+
     }
 }
