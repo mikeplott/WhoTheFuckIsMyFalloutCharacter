@@ -1,17 +1,6 @@
 
-var serverResponse = function(data){
-    var shit = data
-    console.log(shit)
-  for (var i = 0; i < data.length; i++) {
-    var rngContent = data;
-    console.log(rngContent);
-  }
-  return rngContent;
-}
-
 var falloutContent = ""
   falloutContent += '<div class="text-center">';
-<<<<<<< HEAD
   falloutContent +=    "<h1> My SPECIAL is...</h1>";
   falloutContent +=    '<ul style="text-decoration:none;">';
   falloutContent +=      "<li><h4>" + falloutCharacters[8] + "</h4></li>";
