@@ -4,12 +4,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title> Fallout | Skyrim Generator</title>
       <link rel="stylesheet" href="./css/lib/bootstrap.min.css">
-      <link rel="stylesheet" href="./css/styles.css">
       <link rel="stylesheet" href="./css/lib/font-awesome.css">
       <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Almendra+SC" rel="stylesheet">
-
-
+      <link rel="stylesheet" href="./css/styles.css">
    </head>
    <body>
       <div id="app-container">
@@ -24,14 +22,14 @@
               </div>
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-12">
                     <img src="./images/vaultboi.png" class="img-rounded" alt="vault boy meme"/>
-                    <button type="button" class="btn btn-lg" id="fallout-button"><a href="#fallout">Fallout Character</a></button>
+                    <button type="button" class="btn btn-lg text-center" id="fallout-button"><a href="#fallout">Fallout Character</a></button>
                   </div>
-                  <div class="col-sm-6">
+                  <!-- <div class="col-sm-6">
                     <img src="./images/skyrimguard.jpg" class="img-rounded" alt="dank skryim meme" class="big"/>
-                    <button type="button" class="btn btn-lg" id="skyrim-button"><a href="#skyrim">Skyrim Character</a></button>
-                  </div>
+                    <button type="button" class="btn btn-lg text-center" id="skyrim-button asdf"><a href="#skyrim">Skyrim Character</a></button>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -41,7 +39,7 @@
         <div id="fallout">
 
         </div>
-        <div id="skyrim">
+        <div id="skyrim" class="text-center">
 
         </div>
       </div>
@@ -49,6 +47,8 @@
       <script src="./js/lib/underscore-min.js"></script>
       <script src="./js/lib/backbone-min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="./js/fallout.js"></script>
+      <script src="./js/skyrim.js"></script>
       <script src="./js/app.js"></script>
    </body>
 </html>

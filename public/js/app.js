@@ -1,42 +1,53 @@
 /* Show Modal of Options */
 
 $('#myModal').modal('show');
-    /*API Response and Iteration*/
-var serverResponse = function(data){
-    var shit = data
-    console.log(shit)
-  for (var i = 0; i < data.length; i++) {
 
+/*API Response and Iteration*/
+
+var newContentConstructor = function(data){
+  for (var i = 0; i < data.length; i++) {
+    var iteratedData = data[i]
+    var slicedData = iteratedData.slice(',');
+    sliceData.replace('{', '')
+    sliceData.replace('}', '')
+    console.log(slicedData);
+  }
+  if (typeof sliceData === "object"){
+    return slicedData;
+  } else {
+    console.log("shit's broke yo")
   }
 }
+
+// var serverResponse = function(data){
+//     var shit = data
+//     console.log(shit)
+//   for (var i = 0; i < data.length; i++) {
+//     var rngContent = data;
+//     console.log(rngContent);
+//   }
+//   return rngContent;
+// }
+
 /* Dynamic content blocks*/
-
-var falloutContent = ""
-  falloutContent += '<div class="text-center">';
-  falloutContent +=    "<h1> My SPECIAL is " + data[2] + "</h1>";
-  falloutContent +=    "<h2> and I am a " + data.race + "with " + data[4] + "</h2>";
-  falloutContent +=    "<h1> it works!! </h1>";
-  falloutContent += "</div>";
-
-var skyrimContent = ""
-  skyrimContent += '<div class="text-center">';
-  skyrimContent +=   "<h1> i love waka flocka</h1>";
-  skyrimContent +=   "<h1> Your race is " + data.race + ".</h1>";
-  // skyrimContent += "<h2> You are a " + serverResponse[1]  + "with " + serverResponse[2] "</h2>"
-  skyrimContent +=   "<h2> and a " + data[3] + "</h2>"
-  skyrimContent += "</div>";
+// var skyrimContent = ""
+//   skyrimContent += '<div class="text-center">';
+//   skyrimContent +=   "<h1> i love waka flocka</h1>";
+//   skyrimContent +=   "<h1> My race is " + skyrimCharacters[race] + ".</h1>";
+//   // skyrimContent += "<h2> You are a " + serverResponse[1]  + "with " + serverResponse[2] "</h2>"
+//   skyrimContent +=   "<h2> and a " + SkyrimCharacters[3] + "</h2>"
+//   skyrimContent += "</div>";
 
 /*jQuery Functions & Calls*/
+
 $( "#fallout-button" ).click(function() {
   $('#myModal').modal('hide');
-  // $.getJSON("mikesurl").then(injectFallout)
   $( "#fallout" ).append( falloutContent );
 });
 $( "#skyrim-button" ).click(function() {
   $('#myModal').modal('hide');
-  // $.getJSON("mikesurl").then(injectFallout)
   $( "#skyrim" ).append( skyrimContent );
 });
 
-$.getJSON("http://localhost:4567/skyrim").then(serverResponse)
-$.getJSON("http://localhost:4567/fallout").then(serverResponse)
+$.getJSON("http://localhost:4567/skyrim").then(newContentConstructor)
+$.getJSON("http://localhost:4567/fallout").then(newContentConstructor)
