@@ -1,4 +1,4 @@
-/*Content blocks*/ 
+/*Content blocks*/
 
 var falloutBackstory = [
   "You come from the Capital Wasteland.  After bouncing around many different caravans and settlments, you finally find a home in the Commonwealth.  Everything was fine until your spouse vanished one night at the hands of the Institute.",
