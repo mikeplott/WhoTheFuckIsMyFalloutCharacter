@@ -5,6 +5,7 @@ $('#myModal').modal('show');
 /*API Response and Iteration*/
 
 var newContentConstructor = function(data){
+
   for (var i = 0; i < data.length; i++) {
     var iteratedData = data[i]
     var slicedData = iteratedData.slice(',');

@@ -403,4 +403,22 @@ public class MainTest {
         assertTrue(stories.size() == 6);
     }
 
+    @Test
+    public void testInsertFalloutCharacter() throws SQLException, FileNotFoundException {
+        Connection conn = startConnection();
+        Main.fileImportFalloutStory(conn);
+        int ranStr = (int) Math.ceil(Math.random() * 10);
+        int ranPer = (int) Math.ceil(Math.random() * 10);
+        int ranEnd = (int) Math.ceil(Math.random() * 10);
+        int ranCha = (int) Math.ceil(Math.random() * 10);
+        int ranIntel = (int) Math.ceil(Math.random() * 10);
+        int ranAgi = (int) Math.ceil(Math.random() * 10);
+        int ranLuck = (int) Math.ceil(Math.random() * 10);
+        int ranSto = (int) Math.ceil(Math.random() * 6);
+        String story = Main.selectAFalloutStory(conn, ranSto);
+        FalloutCharacter fc = new FalloutCharacter(ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, story);
+        Main.insertFalloutCharacter(conn, fc);
+        //Main.select
+    }
+
 }

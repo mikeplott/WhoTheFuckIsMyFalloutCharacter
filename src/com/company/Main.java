@@ -563,6 +563,18 @@ public class Main {
 
     public static void insertFalloutCharacter(Connection conn, FalloutCharacter fc) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO fallout_characters VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+        stmt.setInt(1, fc.str);
+        stmt.setInt(2, fc.per);
+        stmt.setInt(3, fc.end);
+        stmt.setInt(4, fc.cha);
+        stmt.setInt(5, fc.intel);
+        stmt.setInt(6, fc.agi);
+        stmt.setInt(7, fc.luck);
+        stmt.setString(8, fc.desc);
+        stmt.execute();
+    }
 
+    public static FalloutCharacter selectFalloutCharacter(Connection conn, int id) {
+        return null;
     }
 }
