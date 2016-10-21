@@ -17,9 +17,12 @@ img {
 .modal-header {
   background: #222;
   color: #ccc; }
+.col-sm-12 {
+  text-align: center;
+}
 
 #fallout {
-  background: url("https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg") center center no-repeat fixed;
+  background: url("https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg") center center no-repeat cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
