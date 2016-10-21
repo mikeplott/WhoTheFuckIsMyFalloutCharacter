@@ -25,6 +25,7 @@ public class Main {
 
         ArrayList<String> words = selectAllWords(conn);
         ArrayList<SkyrimCharacter> skyrimCharacters = selectAllSkyrimCharacters(conn);
+        ArrayList<String> falloutStories = selectAllFalloutStories(conn);
 
         if (words.size() == 0) {
             fileImport(conn);
@@ -32,6 +33,10 @@ public class Main {
 
         if (skyrimCharacters.size() == 0) {
             skyrimImport(conn);
+        }
+
+        if (falloutStories.size() == 0) {
+            fileImportFalloutStory(conn);
         }
 
         Spark.get(
@@ -75,8 +80,12 @@ public class Main {
                     String third = selectThird(conn, ranThird);
                     String desc = first + " " + second + " " + third;
                     FalloutCharacter fc = new FalloutCharacter(ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, desc);
+                    ArrayList<FalloutCharacter> fcs = new ArrayList<FalloutCharacter>();
+                    fcs.add(fc);
+                    FalloutWrapper wrapper = new FalloutWrapper();
+                    wrapper.falloutCharacters = fcs;
                     JsonSerializer serializer = new JsonSerializer();
-                    return serializer.serialize(fc);
+                    return serializer.deep(true).serialize(wrapper);
 
                 }
         );
@@ -121,6 +130,8 @@ public class Main {
         stmt.execute("CREATE TABLE IF NOT EXISTS third_word (id IDENTITY, third VARCHAR)");
         stmt.execute("CREATE TABLE IF NOT EXISTS skyrim_characters (id IDENTITY, race VARCHAR, smithing INT, heavy_armor INT, block INT, two_handed INT, one_handed INT, archery INT, light_armor INT, " +
                 "sneak INT, lockpicking INT, pickpocket INT, speech INT, alchemy INT, illusion INT, conjuration INT, destruction INT, restoration INT, alteration INT, enchanting INT)");
+        stmt.execute("CREATE TABLE IF NOT EXISTS fallout_stories (id IDENTITY, story VARCHAR)");
+        stmt.execute("CREATE TABLE IF NOT EXISTS skyrim_stories (id IDENTITY, story VARCHAR)");
     }
 
     public static ArrayList<String> selectAllWords(Connection conn) throws SQLException {
@@ -488,5 +499,45 @@ public class Main {
                     speech, alchemy, illusion, conjuration, destruction, restoration, alteration, enchanting);
         }
         return null;
+    }
+
+    public static void insertFalloutStory(Connection conn, String story) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO fallout_stories VALUES (NULL, ?)");
+        stmt.setString(1, story);
+        stmt.execute();
+    }
+
+    public static ArrayList<String> selectAllFalloutStories(Connection conn) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM fallout_stories");
+        ArrayList<String> stories = new ArrayList<>();
+        ResultSet results = stmt.executeQuery();
+        while (results.next()) {
+            int id = results.getInt("id");
+            String story = results.getString("story");
+            stories.add(story);
+        }
+        return stories;
+    }
+
+    public static String selectAFalloutStory(Connection conn, int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM fallout_stories WHERE id = ?");
+        stmt.setInt(1, id);
+        ResultSet results = stmt.executeQuery();
+        if (results.next()) {
+            String story = results.getString("story");
+            return story;
+        }
+        return null;
+    }
+
+    public static void fileImportFalloutStory(Connection conn) throws FileNotFoundException, SQLException {
+        File f = new File("falloutstories.txt");
+        Scanner fileScanner = new Scanner(f);
+        while (fileScanner.hasNext()) {
+            String line = fileScanner.nextLine();
+            String[] columns = line.split("\\|");
+            String story = columns[0];
+            insertFalloutStory(conn, story);
+        }
     }
 }

@@ -120,7 +120,7 @@ public class MainTest {
     }
 
     @Test
-    public void testInsertAndSelectCharacter() throws SQLException {
+    public void testInsertAndSelectCharacter() throws SQLException, FileNotFoundException {
         Connection conn = startConnection();
         Main.insertUser(conn, "Mike", "123");
         User user = Main.selectUser(conn, "Mike");
@@ -149,13 +149,18 @@ public class MainTest {
         int ranIntel = (int) Math.ceil(Math.random() * 10);
         int ranAgi = (int) Math.ceil(Math.random() * 10);
         int ranLuck = (int) Math.ceil(Math.random() * 10);
+        int ranSto = (int) Math.ceil(Math.random() * 6);
+        System.out.println(ranSto);
+        Main.fileImportFalloutStory(conn);
         String first = Main.selectFirst(conn, ranFirst);
         String second = Main.selectSecond(conn, ranSecond);
         String third = Main.selectThird(conn, ranThird);
-        String desc = first + " " + second + " " + third;
+        String desc = Main.selectAFalloutStory(conn, ranSto);
+        System.out.println(desc);
         Main.insertCharacter(conn, ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, desc, user.id);
         FalloutCharacter falloutCharacter = Main.selectOneCharacter(conn, 1);
         conn.close();
+        System.out.println(falloutCharacter);
         assertTrue(falloutCharacter != null);
     }
 
@@ -377,4 +382,25 @@ public class MainTest {
         conn.close();
         assertTrue(sc != null);
     }
+
+    @Test
+    public void testSelectFalloutStory() throws SQLException, FileNotFoundException {
+        Connection conn = startConnection();
+        Main.fileImportFalloutStory(conn);
+        int ranSto = (int) Math.ceil(Math.random() * 6);
+        String story = Main.selectAFalloutStory(conn, ranSto);
+        System.out.println(story);
+        conn.close();
+        assertTrue(story != null);
+    }
+
+    @Test
+    public void testSelectAllFalloutStories() throws SQLException, FileNotFoundException {
+        Connection conn = startConnection();
+        Main.fileImportFalloutStory(conn);
+        ArrayList<String> stories = Main.selectAllFalloutStories(conn);
+        conn.close();
+        assertTrue(stories.size() == 6);
+    }
+
 }
