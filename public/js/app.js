@@ -5,29 +5,22 @@ $('#myModal').modal('show');
 /*API Response and Iteration*/
 
 var newContentConstructor = function(data){
-  var falloutChar = data[1]
-  var FalloutCharacters = for (var i = 0; i < falloutChar.length; i++) {
+    var falloutChar = data[1]
+    console.log(data[1])
+    for (var i = 0; i < falloutChar.length; i++) {
     var slicedData = falloutChar.slice(',');
-    slicedData.replace('{', '')
-    slicedData.replace('}', '')
+    slicedData.replace('{', '');
+    slicedData.replace('}', '');
     console.log(slicedData);
-  }
-  if (typeof slicedData === "object"){
-    return slicedData;
+    }
+
+    var falloutCharacters = slicedData;
+  if (typeof falloutCharacters === "object"){
+    return falloutCharacters;
   } else {
     console.log("shit's still broke yo")
   }
 }
-
-// var serverResponse = function(data){
-//     var shit = data
-//     console.log(shit)
-//   for (var i = 0; i < data.length; i++) {
-//     var rngContent = data;
-//     console.log(rngContent);
-//   }
-//   return rngContent;
-// }
 
 /* Dynamic content blocks*/
 // var skyrimContent = ""
