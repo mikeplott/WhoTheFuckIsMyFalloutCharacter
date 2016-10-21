@@ -80,8 +80,12 @@ public class Main {
                     String third = selectThird(conn, ranThird);
                     String desc = first + " " + second + " " + third;
                     FalloutCharacter fc = new FalloutCharacter(ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, desc);
+                    ArrayList<FalloutCharacter> fcs = new ArrayList<FalloutCharacter>();
+                    fcs.add(fc);
+                    FalloutWrapper wrapper = new FalloutWrapper();
+                    wrapper.falloutCharacters = fcs;
                     JsonSerializer serializer = new JsonSerializer();
-                    return serializer.serialize(fc);
+                    return serializer.deep(true).serialize(wrapper);
 
                 }
         );
