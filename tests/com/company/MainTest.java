@@ -418,7 +418,8 @@ public class MainTest {
         String story = Main.selectAFalloutStory(conn, ranSto);
         FalloutCharacter fc = new FalloutCharacter(ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, story);
         Main.insertFalloutCharacter(conn, fc);
-        //Main.select
+        FalloutCharacter fc1 = Main.selectFalloutCharacter(conn, 1);
+        assertTrue(fc1 != null);
     }
 
 }

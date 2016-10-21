@@ -574,7 +574,21 @@ public class Main {
         stmt.execute();
     }
 
-    public static FalloutCharacter selectFalloutCharacter(Connection conn, int id) {
+    public static FalloutCharacter selectFalloutCharacter(Connection conn, int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM fallout_characters WHERE id = ?");
+        stmt.setInt(1, id);
+        ResultSet results = stmt.executeQuery();
+        if (results.next()) {
+            int str = results.getInt("str");
+            int per = results.getInt("per");
+            int end = results.getInt("end");
+            int cha = results.getInt("cha");
+            int intel = results.getInt("intel");
+            int agi = results.getInt("agi");
+            int luck = results.getInt("luck");
+            String desc = results.getString("desc");
+            return new FalloutCharacter(str, per, end, cha, intel, agi, luck, desc);
+        }
         return null;
     }
 }
