@@ -8,19 +8,26 @@ var newContentConstructor = function(data){
   for (var i = 0; i < data.length; i++) {
     var iteratedData = data[i]
     var slicedData = iteratedData.slice(',');
+    sliceData.replace('{', '')
+    sliceData.replace('}', '')
+    console.log(slicedData);
   }
-  return slicedData;
+  if (typeof sliceData === "object"){
+    return slicedData;
+  } else {
+    console.log("shit's broke yo")
+  }
 }
 
-var serverResponse = function(data){
-    var shit = data
-    console.log(shit)
-  for (var i = 0; i < data.length; i++) {
-    var rngContent = data;
-    console.log(rngContent);
-  }
-  return rngContent;
-}
+// var serverResponse = function(data){
+//     var shit = data
+//     console.log(shit)
+//   for (var i = 0; i < data.length; i++) {
+//     var rngContent = data;
+//     console.log(rngContent);
+//   }
+//   return rngContent;
+// }
 
 /* Dynamic content blocks*/
 // var skyrimContent = ""
@@ -42,5 +49,5 @@ $( "#skyrim-button" ).click(function() {
   $( "#skyrim" ).append( skyrimContent );
 });
 
-$.getJSON("http://localhost:4567/skyrim").then(serverResponse)
-$.getJSON("http://localhost:4567/fallout").then(serverResponse)
+$.getJSON("http://localhost:4567/skyrim").then(newContentConstructor)
+$.getJSON("http://localhost:4567/fallout").then(newContentConstructor)

@@ -1,11 +1,11 @@
 //SKYRIM BACKSTORIES
-var skyrimContent = ""
-  skyrimContent += '<div class="text-center">';
-  skyrimContent +=   "<h1> pls no commit issues this time ;_; </h1>";
-  skyrimContent +=   "<h1> Your race is " + falloutCharacters[3] + ".</h1>";
-  // skyrimContent += "<h2> You are a " + serverResponse[1]  + "with " + serverResponse[2] "</h2>"
-  skyrimContent +=   "<h2> and a " + falloutCharacters[3] + "</h2>"
-  skyrimContent += "</div>";
+// var skyrimContent = ""
+//   skyrimContent += '<div class="text-center">';
+//   skyrimContent +=   "<h1> pls no commit issues this time ;_; </h1>";
+//   skyrimContent +=   "<h1> Your race is " + falloutCharacters[3] + ".</h1>";
+//   // skyrimContent += "<h2> You are a " + serverResponse[1]  + "with " + serverResponse[2] "</h2>"
+//   skyrimContent +=   "<h2> and a " + falloutCharacters[3] + "</h2>"
+//   skyrimContent += "</div>";
 
 //BACKSTORY 1
 
