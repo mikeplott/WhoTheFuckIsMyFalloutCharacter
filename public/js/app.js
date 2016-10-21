@@ -5,17 +5,17 @@ $('#myModal').modal('show');
 /*API Response and Iteration*/
 
 var newContentConstructor = function(data){
-  for (var i = 0; i < data.length; i++) {
-    var iteratedData = data[i]
-    var slicedData = iteratedData.slice(',');
-    sliceData.replace('{', '')
-    sliceData.replace('}', '')
+  var falloutChar = data[1]
+  var FalloutCharacters = for (var i = 0; i < falloutChar.length; i++) {
+    var slicedData = falloutChar.slice(',');
+    slicedData.replace('{', '')
+    slicedData.replace('}', '')
     console.log(slicedData);
   }
-  if (typeof sliceData === "object"){
+  if (typeof slicedData === "object"){
     return slicedData;
   } else {
-    console.log("shit's broke yo")
+    console.log("shit's still broke yo")
   }
 }
 
