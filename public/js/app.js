@@ -22,8 +22,6 @@ var serverResponse = function(data){
   return rngContent;
 }
 
-var falloutCharacters = {"agi":9, "cha" : 7, "desc" : "blue thursday aljsdfjalsf", "end": 5, "id": 0, "intel": 1, "luck": 3, "per": 8, "str": 1}
-
 /* Dynamic content blocks*/
 // var skyrimContent = ""
 //   skyrimContent += '<div class="text-center">';
