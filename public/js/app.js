@@ -7,7 +7,7 @@ $('#myModal').modal('show');
 var newContentConstructor = function(data){
   for (var i = 0; i < data.length; i++) {
     var iteratedData = data[i]
-    slicedData = iteratedData.slice();
+    var slicedData = iteratedData.slice(',');
   }
   return slicedData;
 }
