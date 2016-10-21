@@ -1,14 +1,5 @@
-// var falloutCharacters = [
-//        "agi" : 9,
-//        "cha" : 7,
-//        "desc" : "blue thursday aljsdfjalsf",
-//        "end": 5,
-//        "id": 0,
-//        "intel": 1,
-//        "luck": 3,
-//        "per": 8,
-//        "str": 1
-// ]
+/*Content blocks*/ 
+
 var falloutBackstory = [
   "You come from the Capital Wasteland.  After bouncing around many different caravans and settlments, you finally find a home in the Commonwealth.  Everything was fine until your spouse vanished one night at the hands of the Institute.",
   "You come from the Pitt.  Your years of running with a raider gang have turned you into a hardened killer. But after a raid went wrong and your gang boss was killed, you were framed for his death and went on the run to escape the bounty they put on your head.",
@@ -17,6 +8,7 @@ var falloutBackstory = [
   "You come from Vault 13.  You were sent outside to try and establish contact with anyone who may still be alive.  Your vault was isolated for 200 years so you had no knowledge of the outside world and this whole world is very foreign to you.",
   "You are from before the bombs fell.  Radiation has kept you alive for over 200 years.  You spend your days wondering when it will end."
 ]
+
 var falloutContent = ""
   falloutContent += '<div class="text-center">';
   falloutContent += '<h2>' + falloutBackstory[1] + '</h2>'
