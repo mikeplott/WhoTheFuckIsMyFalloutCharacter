@@ -90,6 +90,21 @@ public class Main {
         );
 
         Spark.get(
+                "/backstory",
+                (request, response) -> {
+                    int ranFirst = (int) Math.ceil(Math.random() * 6);
+                    int ranSecond = (int) Math.ceil(Math.random() * 8);
+                    int ranThird = (int) Math.ceil(Math.random() * 5);
+                    String first = selectFirst(conn, ranFirst);
+                    String second = selectSecond(conn, ranSecond);
+                    String third = selectThird(conn, ranThird);
+                    String desc = first + " " + second + " " + third;
+                    JsonSerializer serializer = new JsonSerializer();
+                    return serializer.serialize(desc);
+                }
+        );
+
+        Spark.get(
                 "/user",
                 (request, response) -> {
                     Session session = request.session();
