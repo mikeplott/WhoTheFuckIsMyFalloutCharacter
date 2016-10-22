@@ -407,6 +407,7 @@ public class MainTest {
     public void testInsertFalloutCharacter() throws SQLException, FileNotFoundException {
         Connection conn = startConnection();
         Main.fileImportFalloutStory(conn);
+        Main.insertUser(conn, "Mike", "123");
         int ranStr = (int) Math.ceil(Math.random() * 10);
         int ranPer = (int) Math.ceil(Math.random() * 10);
         int ranEnd = (int) Math.ceil(Math.random() * 10);
@@ -417,9 +418,13 @@ public class MainTest {
         int ranSto = (int) Math.ceil(Math.random() * 6);
         String story = Main.selectAFalloutStory(conn, ranSto);
         FalloutCharacter fc = new FalloutCharacter(ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, story);
-        Main.insertFalloutCharacter(conn, fc);
-        FalloutCharacter fc1 = Main.selectFalloutCharacter(conn, 1);
-        assertTrue(fc1 != null);
+        FalloutCharacter fc1 = new FalloutCharacter(ranStr, ranPer, ranEnd, ranCha, ranIntel, ranAgi, ranLuck, story);
+        Main.insertFalloutCharacter(conn, fc, 1);
+        Main.insertFalloutCharacter(conn, fc1, 1);
+        Main.deleteFalloutCharacter(conn, 1);
+        ArrayList<FalloutCharacter> fcs = Main.selectAllFalloutCharacters(conn);
+        conn.close();
+        assertTrue(fcs.size() == 1);
     }
 
 }

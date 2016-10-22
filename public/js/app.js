@@ -5,8 +5,8 @@ $('#myModal').modal('show');
 /*API Response and Iteration*/
 
 var newContentConstructor = function(data){
+    console.log(data)
     var falloutChar = data[1]
-    console.log(data[1])
     for (var i = 0; i < falloutChar.length; i++) {
     var slicedData = falloutChar.slice(',');
     slicedData.replace('{', '');
@@ -42,5 +42,5 @@ $( "#skyrim-button" ).click(function() {
   $( "#skyrim" ).append( skyrimContent );
 });
 
-$.getJSON("http://localhost:4567/skyrim").then(newContentConstructor)
+//$.getJSON("http://localhost:4567/skyrim").then(newContentConstructor)
 $.getJSON("http://localhost:4567/fallout").then(newContentConstructor)

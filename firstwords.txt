@@ -1,5 +1,8 @@
-blue|monday|ajdsflja
-red|tuesday|alskjdfaslkfdl
-yellow|wednesday|lakjsdfjasfdjlk
-purple|thursday|aljsdfjalsf
-orange|friday|laksjdfjasfdjlk
+You come from the Capital Wasteland.|You are an alcoholic and must drink every 24 hrs|After bouncing around many different caravans and settlements, you finally find a home in the Commonwealth.  Everything was fine until your spouse vanished one night at the hands of the Institute.
+You come from the Pitt.|You have an obsession with sleep and must rest every 12 hours|After a raid went wrong and your gang boss was killed, you were framed for his death and went on the run to escape the bounty they put on your head.
+You come from Ronto.|You think you are a turtle due to the large amount of radiation you absorbed in the womb|But after some raiders came and killed your wife, you now spend your days hunting the raiders down.
+You come from the NCR.|You have a compulsion to protect Radroaches, even if it means you must die from them in order to protect them|But after realizing that you were raised in a hyper-religious cult, you set out on your own into the world.
+You come from Vault 13.|You search the wasteland for a mythical treat you once read about in a ruined book, called bananas.|But after reading a mostly destroyed book by Asimov, you become obsessed with aliens and refuse to use any weapon except for things that are laser based.
+You are from before the bombs fell.|You are addicted to jet and cannot complete anything without taking it once every 24 hours|""
+ ""|You grew up to love Deathclaws and wish to be friends with them, therefore you will not attack them unless you are on the brink of death.|""
+ ""|You are sex obsessed and attempt to have sex with everyone you come into contact with.|""

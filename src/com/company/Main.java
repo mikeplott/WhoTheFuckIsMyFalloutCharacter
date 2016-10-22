@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -72,8 +71,8 @@ public class Main {
                     int ranIntel = (int) Math.ceil(Math.random() * 10);
                     int ranAgi = (int) Math.ceil(Math.random() * 10);
                     int ranLuck = (int) Math.ceil(Math.random() * 10);
-                    int ranFirst = (int) Math.ceil(Math.random() * 5);
-                    int ranSecond = (int) Math.ceil(Math.random() * 5);
+                    int ranFirst = (int) Math.ceil(Math.random() * 6);
+                    int ranSecond = (int) Math.ceil(Math.random() * 8);
                     int ranThird = (int) Math.ceil(Math.random() * 5);
                     String first = selectFirst(conn, ranFirst);
                     String second = selectSecond(conn, ranSecond);
@@ -125,6 +124,8 @@ public class Main {
                         Spark.halt();
                         return null;
                     }
+                    Session session = request.session();
+                    session.attribute("username", user1.name);
                     return "";
                 }
         );
@@ -132,10 +133,13 @@ public class Main {
         Spark.post(
                 "/add-falloutcharacter",
                 (request, response) -> {
+                    Session session = request.session();
+                    String name = session.attribute("username");
+                    User user = selectUser(conn, name);
                     String body = request.body();
                     JsonParser parser = new JsonParser();
                     FalloutCharacter fc = parser.parse(body, FalloutCharacter.class);
-                    insertFalloutCharacter(conn, fc);
+                    insertFalloutCharacter(conn, fc, user.id);
                     return "";
                 }
         );
@@ -561,8 +565,8 @@ public class Main {
         }
     }
 
-    public static void insertFalloutCharacter(Connection conn, FalloutCharacter fc) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO fallout_characters VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+    public static void insertFalloutCharacter(Connection conn, FalloutCharacter fc, int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO fallout_characters VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         stmt.setInt(1, fc.str);
         stmt.setInt(2, fc.per);
         stmt.setInt(3, fc.end);
@@ -571,6 +575,7 @@ public class Main {
         stmt.setInt(6, fc.agi);
         stmt.setInt(7, fc.luck);
         stmt.setString(8, fc.desc);
+        stmt.setInt(9, id);
         stmt.execute();
     }
 
@@ -590,5 +595,30 @@ public class Main {
             return new FalloutCharacter(str, per, end, cha, intel, agi, luck, desc);
         }
         return null;
+    }
+
+    public static void deleteFalloutCharacter(Connection conn, int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM fallout_characters WHERE id = ?");
+        stmt.setInt(1, id);
+        stmt.execute();
+    }
+
+    public static ArrayList<FalloutCharacter> selectAllFalloutCharacters(Connection conn) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM fallout_characters");
+        ArrayList<FalloutCharacter> fcs = new ArrayList<>();
+        ResultSet results = stmt.executeQuery();
+        while (results.next()) {
+            int str = results.getInt("str");
+            int per = results.getInt("per");
+            int end = results.getInt("end");
+            int cha = results.getInt("cha");
+            int intel = results.getInt("intel");
+            int agi = results.getInt("agi");
+            int luck = results.getInt("luck");
+            String desc = results.getString("desc");
+            FalloutCharacter fc = new FalloutCharacter(str, per, end, cha, intel, agi, luck,desc);
+            fcs.add(fc);
+        }
+        return fcs;
     }
 }
