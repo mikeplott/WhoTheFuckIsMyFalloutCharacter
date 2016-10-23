@@ -9,18 +9,18 @@ var falloutBackstory = [
   "You are from before the bombs fell.  Radiation has kept you alive for over 200 years.  You spend your days wondering when it will end."
 ]
 
-var falloutContent = ""
-  falloutContent += '<div class="text-center">';
-  falloutContent += '<h2>' + falloutBackstory[1] + '</h2>'
-  falloutContent +=    "<h1> Your SPECIAL is...</h1>";
-  falloutContent +=    '<ul style="text-decoration:none;">';
-  falloutContent +=      "<li><h2>" + falloutCharacters[8] + "</h2></li>";
-  falloutContent +=      "<li><h2>" + falloutCharacters[7] + "</h2></li>";
-  falloutContent +=      "<li><h2>" + falloutCharacters[3] + "</h2></li>";
-  falloutContent +=      "<li><h2>" + falloutCharacters[1] + "</h2></li>";
-  falloutContent +=      "<li><h2>" + falloutCharacters[5] + "</h2></li>";
-  falloutContent +=      "<li><h2>" + falloutCharacters[0] + "</h2></li>";
-  falloutContent +=      "<li><h2>" + falloutCharacters[6] + "</h2></li>";
-  falloutContent +=    "</ul>"
-  falloutContent +=    "<h1> some of it works!! </h1>";
-  falloutContent += "</div>";
+// var falloutContent = ""
+//   falloutContent += '<div class="text-center">';
+//   falloutContent += '<h2>' + falloutBackstory[1] + '</h2>'
+//   falloutContent +=    "<h1> Your SPECIAL is...</h1>";
+//   falloutContent +=    '<ul style="text-decoration:none;">';
+//   falloutContent +=      "<li><h2>" + falloutCharacters[8] + "</h2></li>";
+//   falloutContent +=      "<li><h2>" + falloutCharacters[7] + "</h2></li>";
+//   falloutContent +=      "<li><h2>" + falloutCharacters[3] + "</h2></li>";
+//   falloutContent +=      "<li><h2>" + falloutCharacters[1] + "</h2></li>";
+//   falloutContent +=      "<li><h2>" + falloutCharacters[5] + "</h2></li>";
+//   falloutContent +=      "<li><h2>" + falloutCharacters[0] + "</h2></li>";
+//   falloutContent +=      "<li><h2>" + falloutCharacters[6] + "</h2></li>";
+//   falloutContent +=    "</ul>"
+//   falloutContent +=    "<h1> some of it works!! </h1>";
+//   falloutContent += "</div>";
