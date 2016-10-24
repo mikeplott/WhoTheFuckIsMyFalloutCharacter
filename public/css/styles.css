@@ -6,7 +6,7 @@ img {
   display: block; }
 
 #app-container {
-  max-width: 960px; }
+  font-family: 'VT323', monospace; }
 
 #myModal {
   display: flex;
@@ -15,20 +15,34 @@ img {
     text-decoration: none; }
 
 .modal-header {
-  background: #222;
-  color: #ccc; }
-.col-sm-12 {
-  text-align: center;
-}
+  background: #000;
+  color: #aaa; }
+  .modal-header h1 {
+    font-size: 70px; }
+
+.modal-body {
+  background: #333; }
+
+#fallout-button {
+  background: #333; }
+  #fallout-button .fallout-button-link {
+    font-size: 55px;
+    font-family: 'VT323', monospace; }
+  #fallout-button a {
+    color: #aaa; }
 
 #fallout {
-  background: url("https://staticdelivery.nexusmods.com/mods/1151/images/5071-1-1449554573.jpg") center center no-repeat cover;
+  background: url("http://i.imgur.com/NFc1CXK.jpg") center center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #FF0000;
-  text-decoration: none; }
+  color: #15FB1C; }
+  #fallout .special-container h1 {
+    font-size: 75px; }
+  #fallout .special-container li {
+    font-size: 40px;
+    list-style-type: none; }
 
 #skyrim {
   background: url("https://images6.alphacoders.com/309/309983.jpg") no-repeat center center fixed;
@@ -36,16 +50,12 @@ img {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
-.modal-body{
-  background: #222;
-}
+
 .modal-body #fallout-button {
   font-family: 'Roboto', sans-serif;
-  background: #000; }
-.modal-body #fallout-button a{
-  color: #057E09;
-  font-size: 28px;
-}
+  color: #057E09; }
+  .modal-body #fallout-button :hover {
+    background: #15FB1C; }
 .modal-body #skyrim-button {
   font-family: 'Almendra SC', sans-serif;
   color: #000000;
