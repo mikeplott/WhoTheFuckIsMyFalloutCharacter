@@ -21,24 +21,36 @@ var newContentConstructor = function(response){
     falloutContent += "</div>";
     var falloutEl = document.getElementById("fallout").innerHTML = falloutContent;
 }
-// invocation.open('GET', url, true);
+
+var specialDiv = document.getElementsByClassName('special-container')
+
 var backstoryCreator = function(){
+  document.specialDiv.appendChild("falloutBack")
+  falloutBack = ""
   falloutBack +=    "<h1> " + falloutBackstory[0] + " </h1>";
   falloutBack +=    "<h1> " + falloutBackstory[1] + " </h1>";
   falloutBack +=    "<h1> " + falloutBackstory[2] + " </h1>";
+}
+var updateContent = function(){
+  // document.specialDiv.innerHTMl
+  $.ajax({
+    url: 'http://localhost:4567/fallout',
+    type: 'GET',
+    dataType: 'json',
+    data: {
+      param1: 'falloutCharacters[0]',
+      param2: 'falloutBackstory[0]'
+    },
+  })
 }
 
 /*jQuery Functions & Calls*/
 $( "#fallout-button" ).click(function() {
   $('#myModal').modal('hide');
   $.getJSON("http://localhost:4567/fallout").then(newContentConstructor);
-  // $.getJSON("http://localhost:4567/backstory").then(newContentConstructor);
+  $.getJSON("http://localhost:4567/background").then(backstoryCreator);
 });
-$( ".refresh-random").click (function(){
+
+$( ".refresh-random").click(function() {
   $.getJSON("http://localhost:4567/fallout").then(updateContent);
 });
-// $( "#skyrim-button" ).click(function() {
-//   $('#myModal').modal('hide');
-//   $.getJSON("http://localhost:4567/skyrim").then(newContentConstructor);
-//   $( "#skyrim" ).append( skyrimContent );
-// });
