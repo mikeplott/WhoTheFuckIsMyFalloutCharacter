@@ -22,10 +22,10 @@ var newContentConstructor = function(response){
     var falloutEl = document.getElementById("fallout").innerHTML = falloutContent;
 }
 
-var specialDiv = document.getElementsByClassName('special-container')
+var specialDiv = document.getElementsByClassName('special-container');
 
 var backstoryCreator = function(){
-  document.specialDiv.appendChild("falloutBack")
+  document.specialDiv.appendChild("falloutBack");
   falloutBack = ""
   falloutBack +=    "<h1> " + falloutBackstory[0] + " </h1>";
   falloutBack +=    "<h1> " + falloutBackstory[1] + " </h1>";
